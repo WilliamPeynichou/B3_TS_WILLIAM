@@ -64,10 +64,7 @@ export function RecipeDetailPage() {
           <p role="status">Chargement de la recette…</p>
         )}
         <div>
-          <Button
-            className="mt-4"
-            onClick={() => navigate('/')}
-          >
+          <Button className="mt-4" onClick={() => navigate('/')}>
             Retour au fil
           </Button>
         </div>

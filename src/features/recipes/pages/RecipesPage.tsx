@@ -53,9 +53,9 @@ function RecipeGrid({ recipes }: { recipes: Recipe[] }) {
             {favorites.includes(recipe.id) ? '♥' : '♡'}
           </Button>
 
-            <Button
-              variant="ghost"
-              className="mt-3 grid w-full gap-3 rounded-none px-0 py-0 text-left font-normal sm:grid-cols-[1fr_180px]"
+          <Button
+            variant="ghost"
+            className="mt-3 grid w-full gap-3 rounded-none px-0 py-0 text-left font-normal sm:grid-cols-[1fr_180px]"
             onClick={() => navigate(`/recipe/${recipe.id}`)}
           >
             <div>
@@ -80,7 +80,7 @@ function RecipeGrid({ recipes }: { recipes: Recipe[] }) {
               alt={`Plat de ${recipe.name}`}
               loading="lazy"
             />
-            </Button>
+          </Button>
 
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-outline-variant pt-3 text-sm text-on-surface-variant">
             <Link

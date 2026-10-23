@@ -19,11 +19,15 @@ const RecipesContext = createContext<RecipesContextValue | null>(null)
 export function RecipesProvider({ children }: { children: ReactNode }) {
   const data = useRecipeData()
   const addRecipe = useCreateRecipe(data.setRecipes)
-  const value = { recipes: data.recipes, loading: data.loading, error: data.error, retry: data.retry, addRecipe }
+  const value = {
+    recipes: data.recipes,
+    loading: data.loading,
+    error: data.error,
+    retry: data.retry,
+    addRecipe,
+  }
   return (
-    <RecipesContext.Provider value={value}>
-      {children}
-    </RecipesContext.Provider>
+    <RecipesContext.Provider value={value}>{children}</RecipesContext.Provider>
   )
 }
 

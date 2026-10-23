@@ -37,11 +37,13 @@ export function Header({ title, showTabs = true, backHref }: HeaderProps) {
           variant="ghost"
           className="shrink-0 px-3 py-2 text-sm"
           onClick={() => setDark(!dark)}
-          aria-label={dark ? 'Activer le thème clair' : 'Activer le thème sombre'}
+          aria-label={
+            dark ? 'Activer le thème clair' : 'Activer le thème sombre'
+          }
           aria-pressed={dark}
         >
           {dark ? '☀ Clair' : '☾ Sombre'}
-          </Button>
+        </Button>
       </div>
       {showTabs && (
         <nav

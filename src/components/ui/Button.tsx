@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes } from 'react'
 
- type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: 'primary' | 'secondary' | 'ghost'
 }
 

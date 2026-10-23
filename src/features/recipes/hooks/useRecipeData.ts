@@ -11,7 +11,9 @@ export function useRecipeData() {
     return getRecipes()
       .then(setRecipes)
       .catch((error: unknown) => {
-        setError(error instanceof Error ? error.message : 'Une erreur est survenue.')
+        setError(
+          error instanceof Error ? error.message : 'Une erreur est survenue.',
+        )
       })
       .finally(() => setLoading(false))
   }, [])
