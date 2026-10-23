@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+
+<html class="" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_standard" name="shell-type"/>
+<title>La Tablée — Le Fil des Casseroles</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#EA580C',
+              hover: '#C2410C',
+              subtle: '#2A170F',
+              accent: '#F97316'
+            },
+            obsidian: {
+              950: '#000000',
+              900: '#0B0E11',
+              850: '#11151A',
+              800: '#161B22',
+              700: '#21262D',
+              border: '#272E35'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        background-color: #000000;
+        color: #F7F9F9;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #000000;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #272E35;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3B434C;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF5F0] text-[#2C221E] min-h-screen antialiased selection:bg-[#BD4B23] selection:text-white">
+<!-- WRAPPER 3-COLUMNS DESKTOP LAYOUT (TWITTER/X STYLE) -->
+<div class="max-w-[1280px] mx-auto min-h-screen flex justify-center">
+<!-- ======================================================== -->
+<!-- COLONNE GAUCHE : NAVIGATION SIDEBAR SLIM / COMPACTE       -->
+<!-- ======================================================== -->
+<aside class="w-[88px] xl:w-[275px] shrink-0 h-screen sticky top-0 flex flex-col justify-between px-3 xl:px-4 py-3 z-30 select-none border-r border-[#E8DDD4] bg-[#FAF5F0]">
+<!-- Haut: Logo & Menu Principal -->
+<div class="flex flex-col gap-1 items-center xl:items-stretch">
+<!-- Logo Brand -->
+<a class="flex items-center gap-3 p-3 w-fit rounded-full hover:bg-[#F2E7DC] transition-colors mb-1 group" href="#">
+<div class="w-10 h-10 rounded-full bg-gradient-to-tr from-[#9c340b] to-[#BD4B23] flex items-center justify-center shadow-md shadow-[#BD4B23]/20 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-white text-[24px]">local_fire_department</span>
+</div>
+<div class="hidden xl:flex flex-col">
+<span class="font-bold text-xl tracking-tight leading-none text-[#2C221E] font-serif">La Tablée</span>
+<span class="text-[11px] font-semibold tracking-wide text-[#786C65] uppercase mt-0.5">Réseau Culinaire</span>
+</div>
+</a>
+<!-- Liens de navigation Twitter-style -->
+<nav class="flex flex-col gap-1 w-full">
+<!-- 1. Accueil (Active) -->
+<a class="flex items-center gap-4 p-3 rounded-full bg-[#F3E8DE] transition-colors text-[#BD4B23] font-bold text-[18px] group" href="#">
+<span class="material-symbols-outlined text-[26px] text-[#BD4B23]" style="font-variation-settings: 'FILL' 1;">soup_kitchen</span>
+<span class="hidden xl:inline font-bold">Le Fil</span>
+</a>
+<!-- 2. Explorer (Marché & Saisons) -->
+<a class="flex items-center gap-4 p-3 rounded-full hover:bg-[#F2E7DC] transition-colors text-[#584942] hover:text-[#2C221E] font-medium text-[18px] group" href="#">
+<span class="material-symbols-outlined text-[26px] text-[#786C65] group-hover:text-[#BD4B23] transition-colors">explore</span>
+<span class="hidden xl:inline">Le Carnet de Saison</span>
+</a>
+<!-- 3. Notifications avec Badge -->
+<a class="flex items-center gap-4 p-3 rounded-full hover:bg-[#F2E7DC] transition-colors text-[#584942] hover:text-[#2C221E] font-medium text-[18px] relative group" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[26px] text-[#786C65] group-hover:text-[#BD4B23] transition-colors">notifications</span>
+<span class="absolute -top-1 -right-1.5 min-w-[18px] h-[18px] bg-[#BD4B23] text-[11px] font-bold text-white rounded-full flex items-center justify-center px-1 border-2 border-[#FAF5F0]">3</span>
+</div>
+<span class="hidden xl:inline">Notifications</span>
+</a>
+<!-- 4. Carnet & Signets (Recettes sauvegardées) -->
+<a class="flex items-center gap-4 p-3 rounded-full hover:bg-[#F2E7DC] transition-colors text-[#584942] hover:text-[#2C221E] font-medium text-[18px] group" href="#">
+<span class="material-symbols-outlined text-[26px] text-[#786C65] group-hover:text-[#BD4B23] transition-colors">bookmark</span>
+<span class="hidden xl:inline">Mes Recettes &amp; Signets</span>
+</a>
+<!-- 5. Tours de Main -->
+<a class="flex items-center gap-4 p-3 rounded-full hover:bg-[#F2E7DC] transition-colors text-[#584942] hover:text-[#2C221E] font-medium text-[18px] group" href="#">
+<span class="material-symbols-outlined text-[26px] text-[#786C65] group-hover:text-[#BD4B23] transition-colors">restaurant</span>
+<span class="hidden xl:inline">Tours de Main</span>
+</a>
+<!-- 6. Grandes Tablées (Communautés & Défis) -->
+<a class="flex items-center gap-4 p-3 rounded-full hover:bg-[#F2E7DC] transition-colors text-[#584942] hover:text-[#2C221E] font-medium text-[18px] group" href="#">
+<span class="material-symbols-outlined text-[26px] text-[#786C65] group-hover:text-[#BD4B23] transition-colors">groups</span>
+<span class="hidden xl:inline">Grandes Tablées</span>
+</a>
+<!-- 7. Profil -->
+<a class="flex items-center gap-4 p-3 rounded-full hover:bg-[#F2E7DC] transition-colors text-[#584942] hover:text-[#2C221E] font-medium text-[18px] group" href="#">
+<span class="material-symbols-outlined text-[26px] text-[#786C65] group-hover:text-[#BD4B23] transition-colors">account_circle</span>
+<span class="hidden xl:inline">Profil</span>
+</a>
+</nav>
+<!-- Bouton CTA Principal: Poster / Mijoter -->
+<button class="mt-4 w-12 h-12 xl:w-full xl:h-12 bg-[#BD4B23] hover:bg-[#9c340b] text-white font-bold rounded-full flex items-center justify-center shadow-md shadow-[#BD4B23]/25 transition-all hover:scale-[1.02] active:scale-95 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[24px] xl:hidden">skillet</span>
+<span class="hidden xl:inline text-[16px] tracking-wide">+ Mijoter une recette</span>
+</button>
+</div>
+<!-- Bas: Profil Utilisateur Pill -->
+<div class="p-2.5 w-full rounded-full hover:bg-[#F2E7DC] transition-colors cursor-pointer flex items-center justify-between group border border-transparent hover:border-[#E8DDD4]">
+<div class="flex items-center gap-3">
+<img alt="Margot" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#BD4B23]/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH65VC6DQ6GFuP05HclO5qRFqmxX5HxaYYW9SFPrHxnW9SBlVNzsmzk-y-9Un-yREbc-0AiBggE8SU7gCAo34kojfs_8_Ty3Hlgut4GKWQTb2DJFGF-bgl-cqP92v7gxDzFgDNKTo-_50jNvaT3ZTan4IRN2dVCDomKBHvhJBSdmVwrkFgYP5DZduM7Cp6rjVDAWvIdkMFmaqxcWIbffCBAOFlRIZp9PWs5jKoAbNN0KTArCVMm4LaRA"/>
+<div class="hidden xl:flex flex-col text-left">
+<span class="font-bold text-[15px] text-[#2C221E] leading-tight flex items-center gap-1">
+  Margot V.
+  <span class="material-symbols-outlined text-[15px] text-[#BD4B23]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</span>
+<span class="text-[#786C65] text-[13px] leading-tight">@margot_canuts</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#786C65] hidden xl:block group-hover:text-[#2C221E]">more_horiz</span>
+</div>
+</aside>
+<!-- ======================================================== -->
+<!-- COLONNE CENTRALE : TIMELINE PRINCIPALE (TWITTER FEED)    -->
+<!-- ======================================================== -->
+<main class="w-full max-w-[620px] min-h-screen border-r border-[#E8DDD4] bg-[#FFFFFF] flex flex-col shadow-sm">
+<!-- En-tête Sticky Translucide avec Onglets -->
+<header class="sticky top-0 z-20 backdrop-blur-md bg-white/95 border-b border-[#E8DDD4]">
+<div class="flex items-center justify-between px-4 py-3">
+<h1 class="font-bold text-xl text-[#2C221E] tracking-tight flex items-center gap-2 font-serif">
+  Le Fil des Casseroles
+  <span class="w-2 h-2 rounded-full bg-[#BD4B23] animate-pulse"></span>
+</h1>
+<button class="p-1.5 rounded-full hover:bg-[#F5EDE5] text-[#786C65] hover:text-[#2C221E] transition-colors cursor-pointer" title="Paramètres du fil">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+<!-- Deux Onglets Twitter-Style -->
+<div class="flex border-t border-[#EFE6DD]">
+<button class="flex-1 hover:bg-[#FAF5F0] transition-colors py-3 relative flex items-center justify-center font-bold text-[15px] text-[#2C221E] cursor-pointer">
+<span class="">Pour vos fourneaux</span>
+<div class="absolute bottom-0 h-1 w-28 bg-[#BD4B23] rounded-full"></div>
+</button>
+<button class="flex-1 hover:bg-[#FAF5F0] transition-colors py-3 relative flex items-center justify-center font-medium text-[15px] text-[#786C65] hover:text-[#2C221E] cursor-pointer">
+<span class="">Abonnements &amp; Maraîchers</span>
+</button>
+</div>
+</header>
+<!-- ÉDITEUR DE RECETTE / COMPOSER DE TWEET -->
+<section class="p-4 border-b border-[#E8DDD4] flex gap-3 bg-white">
+<img alt="Margot" class="w-10 h-10 rounded-full object-cover shrink-0 ring-2 ring-[#E8DDD4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH65VC6DQ6GFuP05HclO5qRFqmxX5HxaYYW9SFPrHxnW9SBlVNzsmzk-y-9Un-yREbc-0AiBggE8SU7gCAo34kojfs_8_Ty3Hlgut4GKWQTb2DJFGF-bgl-cqP92v7gxDzFgDNKTo-_50jNvaT3ZTan4IRN2dVCDomKBHvhJBSdmVwrkFgYP5DZduM7Cp6rjVDAWvIdkMFmaqxcWIbffCBAOFlRIZp9PWs5jKoAbNN0KTArCVMm4LaRA"/>
+<div class="flex-1 flex flex-col">
+<textarea class="w-full bg-transparent border-0 resize-none text-[17px] placeholder-[#9E9088] text-[#2C221E] focus:ring-0 p-0 focus:outline-none leading-relaxed" placeholder="Qu'est-ce qui mijote dans votre cuisine ?" rows="2"></textarea>
+<!-- Badges contextuels rapides -->
+<div class="flex flex-wrap items-center gap-1.5 pb-3 pt-1">
+<span class="inline-flex items-center gap-1 bg-[#FDF2EC] text-[#BD4B23] text-[12px] font-semibold px-2.5 py-0.5 rounded-full border border-[#F3CEBD]">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+  100% Fait maison • Sans IA
+</span>
+<span class="inline-flex items-center gap-1 bg-[#EEF5EC] text-[#42603C] hover:bg-[#E3EDE0] text-[12px] font-medium px-2.5 py-0.5 rounded-full border border-[#CDE1C8] cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-[14px]">spa</span>
+  Légumes d'automne
+</span>
+</div>
+<!-- Barre d'outils du tweet -->
+<div class="flex items-center justify-between pt-2.5 border-t border-[#EFE6DD]">
+<div class="flex items-center gap-1 text-[#BD4B23]">
+<button class="p-2 rounded-full hover:bg-[#FAF0E8] transition-colors cursor-pointer" title="Ajouter une photo de poêle ou de plat">
+<span class="material-symbols-outlined text-[20px]">image</span>
+</button>
+<button class="p-2 rounded-full hover:bg-[#FAF0E8] transition-colors cursor-pointer" title="Temps de cuisson / Minuteur">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+</button>
+<button class="p-2 rounded-full hover:bg-[#FAF0E8] transition-colors cursor-pointer" title="Ingrédients &amp; proportions">
+<span class="material-symbols-outlined text-[20px]">checklist</span>
+</button>
+<button class="p-2 rounded-full hover:bg-[#FAF0E8] transition-colors cursor-pointer" title="Tour de main / Astuce d'ancien">
+<span class="material-symbols-outlined text-[20px]">history_edu</span>
+</button>
+<button class="p-2 rounded-full hover:bg-[#FAF0E8] transition-colors cursor-pointer" title="Origine terroir / Localisation maraîchère">
+<span class="material-symbols-outlined text-[20px]">pin_drop</span>
+</button>
+</div>
+<button class="bg-[#BD4B23] hover:bg-[#9c340b] text-white text-[14px] font-bold px-4 py-1.5 rounded-full shadow-sm hover:scale-105 active:scale-95 transition-all cursor-pointer">
+  Publier
+</button>
+</div>
+</div>
+</section>
+<!-- FEED DES CASSEROLES (POSTS ARTISANAUX) -->
+<div class="divide-y divide-[#EFE6DD] flex-1 bg-white">
+<!-- POST 1 : THOMAS MERCIER -->
+<article class="p-4 hover:bg-[#FAF7F4] transition-colors cursor-pointer">
+<div class="flex gap-3">
+<a class="shrink-0" href="#">
+<img alt="Thomas Mercier" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#E8DDD4] hover:opacity-90 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUDKskre75mFy5n8I3BQkXmTMuCf9JxdL94Jp5zUkrvQi6UJnnKfXCgo_ZBgfXv-XcQhJadExZxr5oeCNwChaXaVtRvpDpxLxI_9x9ViElVMfsgoYAgkVGPDAK2Pt_PinasxrZxFwZXcXyzILJwAGWegfLS2su_5FIYVKaWQ6wfPoUzFRENsmLNXBVk5aOrLtU2tx0cqttPhTGdWMHkoIyg44i4X_eSffTcUvPyZGN6QEaj8MFNp7d4w"/>
+</a>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5 flex-wrap leading-tight">
+<a class="font-bold text-[15px] text-[#2C221E] hover:underline flex items-center gap-1" href="#">
+  Thomas Mercier
+</a>
+<span class="inline-flex items-center gap-0.5 text-[11px] font-semibold bg-[#EEF5EC] text-[#42603C] border border-[#CDE1C8] px-1.5 py-0.2 rounded">
+<span class="material-symbols-outlined text-[12px]">eco</span>
+  Cuisinier du dimanche
+</span>
+<span class="text-[#786C65] text-[14px]">@thomas_m</span>
+<span class="text-[#786C65] text-[14px]">·</span>
+<span class="text-[#786C65] text-[14px] hover:underline">2h</span>
+</div>
+<button class="text-[#786C65] hover:text-[#2C221E] p-1 rounded-full hover:bg-[#EFE6DD] transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<p class="text-[15px] text-[#3D312B] leading-relaxed mb-3">
+  Les premières gelées ont enfin sucré les courges de plein champ dans le Perche. Voici mon <span class="text-[#BD4B23] font-semibold">velouté de potimarron rôti</span>, éclats de châtaignes tièdes et sauge croustillante au beurre noisette.
+  <br/><br/>
+  💡 <strong class="text-[#2C221E]">Le secret d'ancien :</strong> ne JAMAIS éplucher un vrai potimarron bio. Rôtissez-le brut au four avec une tête d'ail en chemise. La peau apporte toute cette rondeur toastée.
+</p>
+<div class="grid grid-cols-12 gap-1.5 rounded-2xl overflow-hidden border border-[#E8DDD4] mb-3 max-h-[340px] shadow-sm">
+<div class="col-span-7 h-[300px] overflow-hidden group">
+<img alt="Velouté fumant" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjHGtG7RGd7XcuccJzSbAvskN1-79uROEyCq6_FNvpMNr7AuHVBPU476oQ-lazBbb1qhhkCnzGCsy4sNwUYynQY-ImP6SYMQSOUUALEa56ZtNYfc1vm7XFQY9Z1IN-LOXbpkG38yc9jEE4k5Fit1RG0bp4O235EfaRypqki3KLfXckeaLRWl3vVkY7myUjW1SnAsaigWLMBn8HkH6VkKAULj6-068ehVP-Vlsd2MaW0tveLPEtWh_yYg"/>
+</div>
+<div class="col-span-5 flex flex-col gap-1.5 h-[300px]">
+<div class="h-1/2 overflow-hidden group">
+<img alt="Tranches rôties" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTkLKcr3nDGDhSL-oK3tul24TK6fEzYjaKoqrxU3Uo99svYHPfpu-E49yiEf_j9be4Y2EL_90JQs-N_53zVfufI8IwIsibgaDk3eFwzSf-X1CeJrAqW_3amSsL0xOyxSHzGxbZhUEeRisipS9HGy5dC8s8oWcAACRaMQgKVYjiBJDcVoW8aJAECiWdVcRQ4PdSr4hzUxNSDbS2XHIPc00NBosoIQ4tqm_yYaR1lBqb2-K34cS8mDFA_Q"/>
+</div>
+<div class="h-1/2 overflow-hidden group">
+<img alt="Sauge au beurre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjrr6Vt2HPb9ID_NqKSQ9Ct1hjCSTE0gKYfEDuymCchrlAw6cnr3QSdW7b2TT6zCtzOSw2qfOkebhGDVD0FPC-RonoUEk9gd74o-M7uHyNXn8FQd9gw2J5rpAqsp6lnJWAbdksOPjTMddRtSghDlZ9-f3SlBNw1SbOr6P2gHy7VcrPkzTssX4NvVsUjrP1z46p-yWQ8GUksE5KCUyiekOrAsPTDKwawY7VrMNi_OLZ_oPZsPlFWsvx0A"/>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-3 text-[13px] text-[#786C65]">
+<span class="hover:text-[#BD4B23] transition-colors font-medium">#CourgesEtRacines</span>
+<span class="">•</span>
+<span class="hover:text-[#BD4B23] transition-colors font-medium">#CuisineRustique</span>
+<span class="">•</span>
+<span class="text-[#9E9088]">45 min · 4 convives</span>
+</div>
+<div class="flex items-center justify-between text-[#786C65] max-w-md pt-1">
+<button class="flex items-center gap-1.5 hover:text-sky-600 group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-sky-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+</div>
+<span class="text-[13px]">34</span>
+</button>
+<button class="flex items-center gap-1.5 hover:text-emerald-700 group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-emerald-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">repeat</span>
+</div>
+<span class="text-[13px]">19</span>
+</button>
+<button class="flex items-center gap-1.5 text-[#BD4B23] group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-[#FDF2EC] transition-colors">
+<span class="material-symbols-outlined text-[18px] text-[#BD4B23]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="text-[13px] font-bold text-[#BD4B23]">248</span>
+</button>
+<button class="flex items-center gap-1.5 hover:text-amber-700 group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-amber-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">bookmark</span>
+</div>
+<span class="text-[13px]">85</span>
+</button>
+<button class="hover:text-[#2C221E] p-2 rounded-full hover:bg-[#FAF0E8] transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- POST 2 : LÉA CASTEL -->
+<article class="p-4 hover:bg-[#FAF7F4] transition-colors cursor-pointer">
+<div class="flex gap-3">
+<a class="shrink-0" href="#">
+<img alt="Léa Castel" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#E8DDD4] hover:opacity-90 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXz6uV1tzQ1vrt5dLxNUwf0ZsImA0M-KK1ApjebOKo204cqrzgjqqKIPVn6UPmP6dt-JBH-QZugB72MNok6pc7eI0PNz_20IdUpAMVk9cln8gJn9nRuiJFtouGvQaaCDRESPRyq0BnquzIH33qFGG7siu9_le_EzjbUM_DLViRNSVQDRWAe9LSaS47bYoYmnStV4toESkU7cvRHMpWSGlrA2dW49Chspj7A6bC9TAN9i_eP_CLLYvShQ"/>
+</a>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5 flex-wrap leading-tight">
+<a class="font-bold text-[15px] text-[#2C221E] hover:underline" href="#">
+  Léa Castel
+</a>
+<span class="inline-flex items-center gap-0.5 text-[11px] font-semibold bg-[#FEF6EE] text-[#9A5318] border border-[#F6D3B1] px-1.5 py-0.2 rounded">
+<span class="material-symbols-outlined text-[12px]">tune</span>
+  Essai n°4 • Levain
+</span>
+<span class="text-[#786C65] text-[14px]">@lea_levain</span>
+<span class="text-[#786C65] text-[14px]">·</span>
+<span class="text-[#786C65] text-[14px] hover:underline">4h</span>
+</div>
+<button class="text-[#786C65] hover:text-[#2C221E] p-1 rounded-full hover:bg-[#EFE6DD] transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<p class="text-[15px] text-[#3D312B] leading-relaxed mb-3">
+  Après trois échecs cuivrants de tourage au beurre trop chaud qui avait coulé dans la cuve... Regardez cette mie filante au réveil 🥐✨ ! Brioche feuilletée au levain sauvage et cannelle brute.
+  <br/><br/>
+  La règle non négociable : beurre de tourage calé à 14°C pile et un repos strict de 24h au frais à 4°C pour détendre le gluten avant le tourage simple.
+</p>
+<div class="grid grid-cols-2 gap-1.5 rounded-2xl overflow-hidden border border-[#E8DDD4] mb-3 max-h-[260px] shadow-sm">
+<div class="h-[240px] overflow-hidden group">
+<img alt="Mie filante de brioche" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFudOzK8wincI3XrPcxGu1eZXiSoIWV37OvYXA2_IM-4oyaf0SZFDEdo_-VAOraeSyW8FYpXrUA4BE3WSKJcZHZerstav1VOTuHd_fzrM-UGl6ypXwxAqGNTpApYxew4F-cjl9JWkoc038KObgyyzm9-e5sqjggEFDMuWJm1249NpDkTQ2akznPfQ-nB2enFE3nWwIfuW4kHbbXy7CHi-VYsZyzjTj940-BGc_M9Xfq_hmxGZMqccQVg"/>
+</div>
+<div class="h-[240px] overflow-hidden group">
+<img alt="Pâton de tourage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCik1VlFfmTqg--APOn-nAfsSUBI66aKggheWryZZIzLE_2NQbR4VIgqvKfd0-HbXhandxVpOtwwORSBm7dT4wlJMSKFSOC2QKOINpoSr2Jo6iSSvG0dWXfxy03HPdqdmmSdPX7CTmk0S2VcREGBpiEDroPjYWD4NxR4yi7Z4HOBsTydGhcZm7ENlvIDGjWY31Iq3MC4Ii6dQJAE9TiVCFb0Qo0H7wFbCivPaKYuOnVpKNWHWkJEjG2hA"/>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 text-[13px] text-[#BD4B23] hover:underline font-semibold mb-3" href="#">
+<span class="material-symbols-outlined text-[15px]">read_more</span>
+  Dérouler le carnet de notes technique (3 tweets)
+</a>
+<div class="flex items-center justify-between text-[#786C65] max-w-md pt-1">
+<button class="flex items-center gap-1.5 hover:text-sky-600 group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-sky-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+</div>
+<span class="text-[13px]">41</span>
+</button>
+<button class="flex items-center gap-1.5 hover:text-emerald-700 group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-emerald-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">repeat</span>
+</div>
+<span class="text-[13px]">28</span>
+</button>
+<button class="flex items-center gap-1.5 hover:text-[#BD4B23] group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-[#FDF2EC] transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</div>
+<span class="text-[13px]">312</span>
+</button>
+<button class="flex items-center gap-1.5 hover:text-amber-700 group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-amber-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">bookmark</span>
+</div>
+<span class="text-[13px]">124</span>
+</button>
+<button class="hover:text-[#2C221E] p-2 rounded-full hover:bg-[#FAF0E8] transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- POST 3 : GÉRARD M. -->
+<article class="p-4 hover:bg-[#FAF7F4] transition-colors cursor-pointer">
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-full bg-[#F5ECE4] border border-[#DECFC5] flex items-center justify-center font-bold text-[#8C3A1E] shrink-0 font-serif">
+  GM
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5 flex-wrap leading-tight">
+<a class="font-bold text-[15px] text-[#2C221E] hover:underline" href="#">
+  Gérard M.
+</a>
+<span class="inline-flex items-center gap-0.5 text-[11px] font-semibold bg-[#FDF0EE] text-[#9A3025] border border-[#F5C7C3] px-1.5 py-0.2 rounded">
+  Ancien boucher
+</span>
+<span class="text-[#786C65] text-[14px]">@gerard_dijon</span>
+<span class="text-[#786C65] text-[14px]">·</span>
+<span class="text-[#786C65] text-[14px] hover:underline">7h</span>
+</div>
+<button class="text-[#786C65] hover:text-[#2C221E] p-1 rounded-full hover:bg-[#EFE6DD] transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<p class="text-[15px] text-[#3D312B] leading-relaxed mb-3">
+  Avis à ceux qui préparent le bourguignon de dimanche : n'achetez JAMAIS de barquettes anonymes estampillées "viande à mijoter" en supermarché. 
+  <br/><br/>
+  Allez voir un vrai artisan et demandez <strong class="text-[#2C221E]">50% de paleron (pour la fibre moelleuse) et 50% de joue de bœuf</strong>. C'est le collagène fondu de la joue qui lie le vin rouge sans avoir besoin d'y balancer des cuillères de Maïzena. Vin corsé mariné 12h obligatoire.
+</p>
+<!-- Carte citation Tweet-style -->
+<div class="p-3.5 rounded-xl bg-[#FAF5F0] border border-[#E8DDD4] flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-[#BD4B23] text-[24px]">soup_kitchen</span>
+<div class="text-[13px]">
+<p class="font-bold text-[#2C221E]">Rappel du défi hebdomadaire</p>
+<p class="text-[#786C65]">Objectif 150 marmites mijotées avant dimanche 20h.</p>
+</div>
+</div>
+<div class="flex items-center justify-between text-[#786C65] max-w-md pt-1">
+<button class="flex items-center gap-1.5 hover:text-sky-600 group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-sky-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+</div>
+<span class="text-[13px]">89</span>
+</button>
+<button class="flex items-center gap-1.5 hover:text-emerald-700 group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-emerald-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">repeat</span>
+</div>
+<span class="text-[13px]">67</span>
+</button>
+<button class="flex items-center gap-1.5 hover:text-[#BD4B23] group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-[#FDF2EC] transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</div>
+<span class="text-[13px]">532</span>
+</button>
+<button class="flex items-center gap-1.5 hover:text-amber-700 group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-amber-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">bookmark</span>
+</div>
+<span class="text-[13px]">210</span>
+</button>
+<button class="hover:text-[#2C221E] p-2 rounded-full hover:bg-[#FAF0E8] transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- POST 4 : ANTOINE & CLAIRE -->
+<article class="p-4 hover:bg-[#FAF7F4] transition-colors cursor-pointer">
+<div class="flex gap-3">
+<a class="shrink-0" href="#">
+<img alt="Antoine &amp; Claire" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#E8DDD4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrtTZa2FMtF-NM12ujRYgPhEshb8J-PQfOxW5pMg69Qe5mKeU5jM3H-ad3U_Gn0l7DZSA_oGbndVViXUVEOdM_UwOf-OLR2Lw24MUbjtpPsxxkOcYTp_bFWT-Q0GUo5Nw6IAZyigmtzwsJEPRkwf4Qski3m24_jHK7svGhpz0OugZTAr7dO1ijlIn_uoz-mal_EceAOOeIibKmDrrMQc_upRnXt98F1_FN5UrCgwixvm2BayWVJfQWpg"/>
+</a>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5 flex-wrap leading-tight">
+<a class="font-bold text-[15px] text-[#2C221E] hover:underline" href="#">
+  Antoine &amp; Claire
+</a>
+<span class="inline-flex items-center gap-0.5 text-[11px] font-semibold bg-[#F5EDE5] text-[#6E5A4E] border border-[#DFCEBF] px-1.5 py-0.2 rounded">
+  Retour de marché
+</span>
+<span class="text-[#786C65] text-[14px]">@nantes_tablee</span>
+<span class="text-[#786C65] text-[14px]">·</span>
+<span class="text-[#786C65] text-[14px] hover:underline">Hier</span>
+</div>
+<button class="text-[#786C65] hover:text-[#2C221E] p-1 rounded-full hover:bg-[#EFE6DD] transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<p class="text-[15px] text-[#3D312B] leading-relaxed mb-3">
+  Sauve-la-mise en 20 minutes chrono : tagliatelles fraîches, pleurotes dorés à feu vif, ail doux confit et le jaune d'œuf fermier au centre prêt à éclater. Emulsionné à l'eau de cuisson des pâtes. Pas une goutte de crème.
+</p>
+<div class="rounded-2xl overflow-hidden border border-[#E8DDD4] mb-3 max-h-[300px] shadow-sm">
+<img alt="Assiette de tagliatelles fraîches aux champignons et jaune d'oeuf" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWoE5GDStXS4BcIeEEgHznS_p-fA80Xa_VpVtKnmIN9JK3twi9zzUNPNzarwDJuVRFPHs0ApCHivndFAq4Fyisthvd_W9n5KfztNfOJMuAiEYPR3FHTh74qvoIrs6vZU3Zfhvhnt01lvzxWozmd7aWR6iECw1Wkr49WWKAkCgBn4uHA6EVV7wJ-5j_Sdh7jTTxV9v_FCtIkiB_x8vhizoveFn6P4A0xL8civ9__Eyz_kK3tm_rSXEGVw"/>
+</div>
+<div class="flex items-center justify-between text-[#786C65] max-w-md pt-1">
+<button class="flex items-center gap-1.5 hover:text-sky-600 group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-sky-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+</div>
+<span class="text-[13px]">17</span>
+</button>
+<button class="flex items-center gap-1.5 hover:text-emerald-700 group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-emerald-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">repeat</span>
+</div>
+<span class="text-[13px]">12</span>
+</button>
+<button class="flex items-center gap-1.5 hover:text-[#BD4B23] group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-[#FDF2EC] transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</div>
+<span class="text-[13px]">195</span>
+</button>
+<button class="flex items-center gap-1.5 hover:text-amber-700 group transition-colors cursor-pointer">
+<div class="p-2 rounded-full group-hover:bg-amber-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">bookmark</span>
+</div>
+<span class="text-[13px]">73</span>
+</button>
+<button class="hover:text-[#2C221E] p-2 rounded-full hover:bg-[#FAF0E8] transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- ======================================================== -->
+<!-- COLONNE DROITE : RECHERCHE & TENDANCES (STICKY SIDEBAR)  -->
+<!-- ======================================================== -->
+<aside class="w-[350px] shrink-0 hidden lg:flex flex-col gap-4 pl-6 pr-2 py-3 sticky top-0 h-screen overflow-y-auto bg-[#FAF5F0]">
+<!-- Barre de Recherche Pill -->
+<div class="sticky top-0 bg-[#FAF5F0] pt-1 pb-2 z-10">
+<div class="relative flex items-center w-full">
+<span class="material-symbols-outlined absolute left-3.5 text-[#9E9088] text-[20px] pointer-events-none">search</span>
+<input class="w-full bg-[#FFFFFF] border border-[#E8DDD4] focus:border-[#BD4B23] focus:bg-white rounded-full pl-11 pr-4 py-2.5 text-[14px] text-[#2C221E] placeholder-[#9E9088] focus:outline-none focus:ring-1 focus:ring-[#BD4B23] transition-all shadow-sm" placeholder="Rechercher un plat, un producteur..." type="text"/>
+</div>
+</div>
+<!-- CARTE 1 : TENDANCES AUX FOURNEAUX -->
+<section class="bg-[#FFFFFF] border border-[#E8DDD4] rounded-2xl p-4 shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<h2 class="font-bold text-[18px] text-[#2C221E] tracking-tight font-serif">Tendances aux fourneaux</h2>
+<button class="text-[#786C65] hover:text-[#2C221E] p-1 rounded-full hover:bg-[#F5EDE5] transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+</div>
+<div class="flex flex-col divide-y divide-[#EFE6DD]">
+<!-- Tendance 1 -->
+<a class="py-2.5 hover:bg-[#FAF5F0] -mx-2 px-2 rounded-lg transition-colors group block" href="#">
+<div class="flex items-center justify-between text-[#786C65] text-[12px]">
+<span class="">Plats mijotés du dimanche · En hausse</span>
+<span class="material-symbols-outlined text-[16px] group-hover:text-[#2C221E]">more_horiz</span>
+</div>
+<p class="font-bold text-[15px] text-[#2C221E] group-hover:text-[#BD4B23] transition-colors mt-0.5">#BoeufBourguignon</p>
+<p class="text-[12px] text-[#9E9088] mt-0.5">3 420 marmites partagées</p>
+</a>
+<!-- Tendance 2 -->
+<a class="py-2.5 hover:bg-[#FAF5F0] -mx-2 px-2 rounded-lg transition-colors group block" href="#">
+<div class="flex items-center justify-between text-[#786C65] text-[12px]">
+<span class="">Maraîchage d'automne · Tendance</span>
+<span class="material-symbols-outlined text-[16px] group-hover:text-[#2C221E]">more_horiz</span>
+</div>
+<p class="font-bold text-[15px] text-[#2C221E] group-hover:text-[#BD4B23] transition-colors mt-0.5">#CourgesEtRacines</p>
+<p class="text-[12px] text-[#9E9088] mt-0.5">1 890 recettes de potimarrons</p>
+</a>
+<!-- Tendance 3 -->
+<a class="py-2.5 hover:bg-[#FAF5F0] -mx-2 px-2 rounded-lg transition-colors group block" href="#">
+<div class="flex items-center justify-between text-[#786C65] text-[12px]">
+<span class="">Boulangerie &amp; Pains · Tendance</span>
+<span class="material-symbols-outlined text-[16px] group-hover:text-[#2C221E]">more_horiz</span>
+</div>
+<p class="font-bold text-[15px] text-[#2C221E] group-hover:text-[#BD4B23] transition-colors mt-0.5">#LevainSauvage</p>
+<p class="text-[12px] text-[#9E9088] mt-0.5">940 tours de main vérifiés</p>
+</a>
+<!-- Tendance 4 -->
+<a class="py-2.5 hover:bg-[#FAF5F0] -mx-2 px-2 rounded-lg transition-colors group block" href="#">
+<div class="flex items-center justify-between text-[#786C65] text-[12px]">
+<span class="">Technique de chef de famille</span>
+<span class="material-symbols-outlined text-[16px] group-hover:text-[#2C221E]">more_horiz</span>
+</div>
+<p class="font-bold text-[15px] text-[#2C221E] group-hover:text-[#BD4B23] transition-colors mt-0.5">#BeurreClarifié</p>
+<p class="text-[12px] text-[#9E9088] mt-0.5">412 conseils d'anciens</p>
+</a>
+</div>
+<a class="inline-block text-[#BD4B23] text-[14px] hover:underline mt-2 font-semibold" href="#">Afficher plus</a>
+</section>
+<!-- CARTE 2 : CUISINIERS & MARAÎCHERS À SUIVRE -->
+<section class="bg-[#FFFFFF] border border-[#E8DDD4] rounded-2xl p-4 shadow-sm">
+<h2 class="font-bold text-[18px] text-[#2C221E] tracking-tight mb-3 font-serif">Cuisiniers à suivre</h2>
+<div class="flex flex-col gap-3">
+<!-- Profil 1 -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5 min-w-0">
+<img alt="Michel Maraîcher" class="w-10 h-10 rounded-full object-cover shrink-0 ring-1 ring-[#E8DDD4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0d_Ww9xXsZyrDOfVtpTsD_eydoK3R8LxuPDJIKZzVHTxz3xHKEB88oJgbTCMC6kMPacjVyeL_zNJkg7HWjfw8z17xzM6Fyj2wSyG4JcGRBYCydz9SGQnWwp8IoZcwX6Ce7u8glyma7vhkPL7qk7XuYQoSwrK4zX0D4Pe9pyVs-7oiR59Kxpokjc61AOHqLcHn3pjehk9midx7hOyLoevk0axU5Xk7aBtx5pLAhipjy7NtfjNEojsZEQ"/>
+<div class="min-w-0 leading-tight">
+<p class="font-bold text-[14px] text-[#2C221E] truncate hover:underline cursor-pointer">Michel (Maraîcher)</p>
+<p class="text-[#786C65] text-[12px] truncate">@val_d_ouche</p>
+</div>
+</div>
+<button class="bg-[#BD4B23] hover:bg-[#9c340b] text-white font-bold text-[13px] px-3.5 py-1.5 rounded-full transition-all shadow-sm hover:scale-105 active:scale-95 shrink-0 cursor-pointer">Suivre</button>
+</div>
+<!-- Profil 2 -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5 min-w-0">
+<img alt="Solange" class="w-10 h-10 rounded-full object-cover shrink-0 ring-1 ring-[#E8DDD4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACeutPnD9psYhMgxwPNZ31QSLq2JmxKq9X-nJ6LB8n_4v6FZIxMg4TOjYVlROFGPJowB7Dwi-kPlu593HvBZ-53OXvX2ELa90t_pTQkeqtNpMJYbD75TcCYtKajip3VxzLcRlQCOD3N15jJ32eAwvS5AD51a7LSkPPo5GgfhGqJ8qKDYnPobvRaJZfwzifeXuSlr2_bwq5ktdElylp6t00Az1v8DqIwYHmvwxsWHNeAY0leC3JBolqkw"/>
+<div class="min-w-0 leading-tight">
+<p class="font-bold text-[14px] text-[#2C221E] truncate hover:underline cursor-pointer">Solange B.</p>
+<p class="text-[#786C65] text-[12px] truncate">@mamie_solange</p>
+</div>
+</div>
+<button class="bg-[#BD4B23] hover:bg-[#9c340b] text-white font-bold text-[13px] px-3.5 py-1.5 rounded-full transition-all shadow-sm hover:scale-105 active:scale-95 shrink-0 cursor-pointer">Suivre</button>
+</div>
+<!-- Profil 3 -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5 min-w-0">
+<img alt="Françoise" class="w-10 h-10 rounded-full object-cover shrink-0 ring-1 ring-[#E8DDD4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA7cCZ3_sYMQuZC2SXUs12aWqc6eycgZvLM60bzfV0fmNUjOarQ3SO0kZqZLxzZ4eDGHaPzc-9TEImdduFjo7AHPsa3ShHFwP1s4DuXDbFFHPIaqopvJujJbAwJo16SMtFQz0fz73IIPNGy56D7SXUYdZROGok86Ob-gblSZcYB2H-T32wceqpmwl45-kgxuw_lyB8rIFEmLZU9Jkm0MHLp69rO_SEO-jO1G8mwuTlklfllZy0Ijl9HA"/>
+<div class="min-w-0 leading-tight">
+<p class="font-bold text-[14px] text-[#2C221E] truncate hover:underline cursor-pointer">Françoise B.</p>
+<p class="text-[#786C65] text-[12px] truncate">@verger_touraine</p>
+</div>
+</div>
+<button class="bg-[#BD4B23] hover:bg-[#9c340b] text-white font-bold text-[13px] px-3.5 py-1.5 rounded-full transition-all shadow-sm hover:scale-105 active:scale-95 shrink-0 cursor-pointer">Suivre</button>
+</div>
+</div>
+<a class="inline-block text-[#BD4B23] text-[14px] hover:underline mt-3 font-semibold" href="#">Voir tous les artisans</a>
+</section>
+<!-- CARTE 3 : LE DÉFI MIJOTÉ DE LA SEMAINE -->
+<section class="bg-gradient-to-b from-[#FFF5F0] to-[#FDF0E8] border border-[#F3CEBD] rounded-2xl p-4 relative overflow-hidden shadow-sm">
+<div class="absolute -right-4 -top-4 w-20 h-20 bg-[#BD4B23]/10 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center gap-1.5 text-[#BD4B23] text-[12px] font-bold uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-[16px]">local_fire_department</span>
+  Défi Communautaire
+</div>
+<h3 class="font-bold text-[16px] text-[#2C221E] leading-snug font-serif">« La soupe qui répare les lundis brumeux »</h3>
+<p class="text-[#584942] text-[13px] mt-1 leading-relaxed">
+  Bouillons mijotés 4h, veloutés onctueux ou garbures réconfortantes : montrez votre bol.
+</p>
+<!-- Barre de progression -->
+<div class="mt-3 flex items-center justify-between text-[12px]">
+<span class="text-[#2C221E] font-semibold">128 soupières postées</span>
+<span class="text-[#786C65]">Objectif 150</span>
+</div>
+<div class="w-full h-2 bg-[#EADCCF] rounded-full overflow-hidden mt-1">
+<div class="h-full bg-[#BD4B23] rounded-full" style="width: 85%;"></div>
+</div>
+<button class="w-full mt-3.5 bg-[#BD4B23] hover:bg-[#9c340b] text-white text-[13px] font-bold py-2 rounded-full transition-all flex items-center justify-center gap-1.5 shadow-sm hover:scale-[1.01] active:scale-95 cursor-pointer">
+<span class="material-symbols-outlined text-[16px]">add_a_photo</span>
+  Partager mon bol
+</button>
+</section>
+<!-- FOOTER MINIMALISTE TWITTER STYLE -->
+<footer class="text-[12px] text-[#9E9088] px-2 pb-6 flex flex-wrap gap-x-3 gap-y-1">
+<a class="hover:underline hover:text-[#2C221E]" href="#">Conditions d'utilisation</a>
+<a class="hover:underline hover:text-[#2C221E]" href="#">Charte Anti-AI Slop</a>
+<a class="hover:underline hover:text-[#2C221E]" href="#">Producteurs du terroir</a>
+<a class="hover:underline hover:text-[#2C221E]" href="#">Accessibilité</a>
+<a class="hover:underline hover:text-[#2C221E]" href="#">Données de saison</a>
+<span class="">© 2025 La Tablée, Inc.</span>
+</footer>
+</aside>
+</div>
+</body></html>
