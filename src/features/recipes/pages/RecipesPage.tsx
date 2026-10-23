@@ -36,7 +36,6 @@ function RecipeGrid({ recipes }: { recipes: Recipe[] }) {
               <span className="rounded-full bg-tertiary-container/30 px-2 py-0.5 text-xs font-semibold">
                 {recipe.difficulty}
               </span>
-              <span className="rounded-full bg-tertiary-container/30 px-2 py-0.5 text-xs font-semibold">Hello World</span>
               <span className="text-on-surface-variant">{recipe.cuisine}</span>
             </div>
           </div>
@@ -69,9 +68,6 @@ function RecipeGrid({ recipes }: { recipes: Recipe[] }) {
               <p className="mt-2 text-sm text-on-surface-variant">
                 {recipe.cuisine} · {recipe.difficulty} · {recipe.servings}{' '}
                 portions
-              </p>
-              <p> 
-              Hello World 
               </p>
               <p className="mt-1 text-sm text-on-surface-variant">
                 ★ {recipe.rating ?? '—'} ·{' '}
