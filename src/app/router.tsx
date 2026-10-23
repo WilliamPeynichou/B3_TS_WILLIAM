@@ -60,7 +60,24 @@ const routeTree = rootRoute.addChildren([
     notFoundRoute,
   ]),
 ])
-export const router = createRouter({ routeTree, defaultPreload: 'intent' })
+export const router = createRouter({
+  routeTree,
+  rewrite: {
+    input: ({ url }) => {
+      const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+      if (base && url.pathname.startsWith(`${base}/`)) {
+        url.pathname = url.pathname.slice(base.length) || '/'
+      }
+      return url
+    },
+    output: ({ url }) => {
+      const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+      if (base) url.pathname = `${base}${url.pathname}`
+      return url
+    },
+  },
+  defaultPreload: 'intent',
+})
 
 declare module '@tanstack/react-router' {
   interface Register {
