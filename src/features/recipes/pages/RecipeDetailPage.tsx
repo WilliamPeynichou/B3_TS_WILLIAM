@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
+import { Header } from '../../../layouts/Header'
 import { getRecipe } from '../api/recipeApi'
 import type { Recipe } from '../domain/Recipe'
 import { useRecipes } from '../contexts/RecipesContext'
 import { useFavorites } from '../contexts/FavoritesContext'
 import { useNavigate } from '../../../app/router-context'
 import { useParams } from '@tanstack/react-router'
-import { Header } from '../../../layouts/Header'
+import { Button } from '../../../components/ui/Button'
 
 export function RecipeDetailPage() {
   const { recipeId } = useParams({ from: '/_layout/recipe/$recipeId' })
@@ -47,8 +48,8 @@ export function RecipeDetailPage() {
         {failed ? (
           <>
             <p role="alert">Recette introuvable.</p>
-            <button
-              className="mt-4 rounded-lg bg-primary px-4 py-2 text-on-primary"
+            <Button
+              className="mt-4"
               onClick={() => {
                 setFailed(false)
                 void getRecipe(id)
@@ -57,18 +58,18 @@ export function RecipeDetailPage() {
               }}
             >
               Réessayer
-            </button>
+            </Button>
           </>
         ) : (
           <p role="status">Chargement de la recette…</p>
         )}
         <div>
-          <button
-            className="mt-4 bg-primary text-white px-4 py-1.5 rounded-full"
+          <Button
+            className="mt-4"
             onClick={() => navigate('/')}
           >
             Retour au fil
-          </button>
+          </Button>
         </div>
       </div>
     )
@@ -77,12 +78,13 @@ export function RecipeDetailPage() {
     <>
       <Header title="Détail de la recette" showTabs={false} backHref="/" />
       <article className="p-4 border-b border-outline">
-        <button
-          className="mb-4 flex items-center gap-2 text-muted hover:text-on-surface-display"
+        <Button
+          variant="ghost"
+          className="mb-4 flex items-center gap-2 px-0 text-muted hover:text-on-surface-display"
           onClick={() => navigate('/')}
         >
           <span>←</span> Retour au fil
-        </button>
+        </Button>
         <div className="flex gap-3 mb-4">
           <img
             alt={`Plat de ${recipe.name}`}
@@ -114,14 +116,11 @@ export function RecipeDetailPage() {
             <strong>Calories :</strong> {recipe.caloriesPerServing} kcal /
             portion
           </p>
-          <button
-            className="bg-primary hover:bg-primary-hover text-white px-4 py-1.5 rounded-full shadow-sm"
-            onClick={() => toggleFavorite(recipe.id)}
-          >
+          <Button onClick={() => toggleFavorite(recipe.id)}>
             {favorites.includes(recipe.id)
               ? '♥ Dans mon carnet'
               : '♡ Ajouter au carnet'}
-          </button>
+          </Button>
         </div>
         <section className="mb-4">
           <h2 className="font-bold text-lg text-on-surface-display font-serif mb-2">

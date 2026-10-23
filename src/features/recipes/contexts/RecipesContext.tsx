@@ -1,5 +1,6 @@
 import { createContext, useContext, type ReactNode } from 'react'
 import { useRecipeData } from '../hooks/useRecipeData'
+import { useCreateRecipe } from '../hooks/useCreateRecipe'
 
 import type { Recipe } from '../domain/Recipe'
 import type { CreateRecipePayload } from '../api/recipeApi'
@@ -16,9 +17,11 @@ type RecipesContextValue = {
 const RecipesContext = createContext<RecipesContextValue | null>(null)
 
 export function RecipesProvider({ children }: { children: ReactNode }) {
-  const recipes = useRecipeData()
+  const data = useRecipeData()
+  const addRecipe = useCreateRecipe(data.setRecipes)
+  const value = { recipes: data.recipes, loading: data.loading, error: data.error, retry: data.retry, addRecipe }
   return (
-    <RecipesContext.Provider value={recipes}>
+    <RecipesContext.Provider value={value}>
       {children}
     </RecipesContext.Provider>
   )

@@ -36,6 +36,7 @@ function RecipeGrid({ recipes }: { recipes: Recipe[] }) {
               <span className="rounded-full bg-tertiary-container/30 px-2 py-0.5 text-xs font-semibold">
                 {recipe.difficulty}
               </span>
+              <span className="rounded-full bg-tertiary-container/30 px-2 py-0.5 text-xs font-semibold">Hello World</span>
               <span className="text-on-surface-variant">{recipe.cuisine}</span>
             </div>
           </div>
@@ -53,8 +54,9 @@ function RecipeGrid({ recipes }: { recipes: Recipe[] }) {
             {favorites.includes(recipe.id) ? '♥' : '♡'}
           </Button>
 
-          <button
-            className="mt-3 grid w-full gap-3 text-left sm:grid-cols-[1fr_180px]"
+            <Button
+              variant="ghost"
+              className="mt-3 grid w-full gap-3 rounded-none px-0 py-0 text-left font-normal sm:grid-cols-[1fr_180px]"
             onClick={() => navigate(`/recipe/${recipe.id}`)}
           >
             <div>
@@ -68,6 +70,9 @@ function RecipeGrid({ recipes }: { recipes: Recipe[] }) {
                 {recipe.cuisine} · {recipe.difficulty} · {recipe.servings}{' '}
                 portions
               </p>
+              <p> 
+              Hello World 
+              </p>
               <p className="mt-1 text-sm text-on-surface-variant">
                 ★ {recipe.rating ?? '—'} ·{' '}
                 {recipe.prepTimeMinutes + recipe.cookTimeMinutes} min
@@ -79,7 +84,7 @@ function RecipeGrid({ recipes }: { recipes: Recipe[] }) {
               alt={`Plat de ${recipe.name}`}
               loading="lazy"
             />
-          </button>
+            </Button>
 
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-outline-variant pt-3 text-sm text-on-surface-variant">
             <Link
@@ -115,6 +120,7 @@ export function RecipesPage({
   const { favorites } = useFavorites()
   const { filters } = useFilters()
   const [page, setPage] = useState(1)
+  const navigate = useNavigate()
 
   const items = useMemo(
     () =>
@@ -161,12 +167,12 @@ export function RecipesPage({
                 <span className="rounded-full bg-secondary-container px-3 py-1 text-xs font-semibold text-on-secondary-container">
                   Une recette à transmettre
                 </span>
-                <Link
-                  className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-on-primary hover:opacity-90"
-                  href="/create"
+                <Button
+                  className="rounded-lg px-4 py-2 text-sm"
+                  onClick={() => navigate('/create')}
                 >
                   ＋ Mijoter
-                </Link>
+                </Button>
               </div>
             </div>
           </section>

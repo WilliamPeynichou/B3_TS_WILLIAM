@@ -1,3 +1,4 @@
+import { Button } from '../../../components/ui/Button'
 import { Link } from '../../../app/router-context'
 import { useFavorites } from '../contexts/FavoritesContext'
 import type { Recipe } from '../domain/Recipe'
@@ -42,13 +43,14 @@ export function FavoritesTimeline({ recipes }: { recipes: Recipe[] }) {
                   {recipe.servings} portions
                 </p>
               </div>
-              <button
-                className="shrink-0 self-start rounded-lg border border-outline-variant px-3 py-2 text-sm font-semibold text-on-surface-variant transition hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:self-center"
+              <Button
+                variant="secondary"
+                className="shrink-0 self-start rounded-lg px-3 py-2 text-sm sm:self-center"
                 aria-label={`Retirer ${recipe.name} des favoris`}
                 onClick={() => toggleFavorite(recipe.id)}
               >
                 Retirer le signet
-              </button>
+              </Button>
             </div>
           </article>
         </li>
